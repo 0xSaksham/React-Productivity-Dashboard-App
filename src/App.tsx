@@ -1,13 +1,21 @@
-import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
+import Dashboard from "./pages/Dashboard";
+import Tasks from "./pages/Tasks";
+import Notes from "./pages/Notes";
+import Settings from "./pages/Settings";
 
-const App: React.FC = () => {
+function App() {
   return (
-    <div>
-      <h1>Hello from React + TypeScript + Webpack ⚛️</h1>
-      <p>Everything works perfectly!</p>
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Dashboard />} />
+        <Route path="tasks" element={<Tasks />} />
+        <Route path="notes" element={<Notes />} />
+        <Route path="settings" element={<Settings />} />
+      </Route>
+    </Routes>
   );
-};
+}
 
 export default App;
- 
