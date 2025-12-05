@@ -1,31 +1,23 @@
-.input-field {
+/* styles/Input.css */
+.input-container {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  margin-bottom: 12px;
+  margin-bottom: 1rem;
 }
 
 .input-label {
-  font-weight: 600;
-  color: #111827;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
 }
 
-.input-control {
-  padding: 10px 12px;
-  border-radius: 6px;
-  border: 1px solid #d1d5db;
-  font-size: 1rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.input-control:focus {
+.input-field {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  transition: border 0.2s;
 }
 
-.input-helper {
-  font-size: 0.875rem;
-  color: #6b7280;
-  margin: 0;
+.input-field:focus {
+  border-color: blue;
 }

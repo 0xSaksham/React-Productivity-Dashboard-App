@@ -1,23 +1,26 @@
-import React from "react";
-import "../styles/Input.css";
+import React, { forwardRef } from "react";
+import "./Input.css";
 
-type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
+type InputProps = React.ComponentPropsWithoutRef<"input"> & {
   label?: string;
-  helperText?: string;
 };
 
-export default function Input({ label, helperText, id, ...rest }: InputProps) {
-  const inputId = id || `input-${Math.random().toString(36).slice(2, 8)}`;
+const Input = forwardRef<HTMLInputElement, InputProps>(
+  ({ label, id, ...rest }, ref) => {
+    const inputId = id || `input-${Math.random().toString(36).substr(2, 9)}`;
 
-  return (
-    <div className="input-field">
-      {label && (
-        <label htmlFor={inputId} className="input-label">
-          {label}
-        </label>
-      )}
-      <input id={inputId} className="input-control" {...rest} />
-      {helperText && <p className="input-helper">{helperText}</p>}
-    </div>
-  );
-}
+    return (
+      <div className="input-container">
+        {label && <label className="input-label" htmlFor={inputId}>{label}</label>}
+        <input
+          id={inputId}
+          className="input-field"
+          ref={ref}
+          {...rest}
+        />
+      </div>
+    );
+  }
+);
+
+export default Input;
